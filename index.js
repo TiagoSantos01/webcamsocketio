@@ -24,7 +24,7 @@ saveUninitialized: true,
 store:Store
 }));
 Server.createServer(options,App).listen(3000);
-Io.listen(Server);
+	Io.listen(Server);
 Io.use((socket,proximo)=>{
 	let dados = socket.request;
 	Cookie(dados,{},(err)=>{
