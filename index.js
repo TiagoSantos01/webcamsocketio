@@ -1,18 +1,19 @@
 const 	Chave='sessao',
 	ChaveSecreta='ticotest',
+      	Fs = require('fs'),
 	Express =require('express'),
 	CookieParser = require('cookie-parser'),
 	ExpressSession = require('express-session'),
 	App = Express(),
-	Server= require('https'),
-	Fs = require('fs'),
-	Io = require('socket.io'),
+      	options={
+		key:	Fs.readFileSync('key.pem'),
+		cert:	Fs.readFileSync('cert.pem')
+	},
+	Server= require('https')createServer(options,App).listen(3000),
+	Io = require('socket.io').listen(Server);,
 	Cookie = CookieParser(ChaveSecreta),
 	Store = new ExpressSession.MemoryStore();
-const	options={
-	key:	Fs.readFileSync('key.pem'),
-	cert:	Fs.readFileSync('cert.pem')
-};
+
 App.set('views', __dirname + '/views' );
 App.set('view engine', 'ejs');
 App.use(Cookie);
@@ -23,8 +24,8 @@ resave:	true,
 saveUninitialized: true,
 store:Store
 }));
-Server.createServer(options,App).listen(3000);
-	Io.listen(Server);
+
+	
 Io.use((socket,proximo)=>{
 	let dados = socket.request;
 	Cookie(dados,{},(err)=>{
@@ -53,7 +54,4 @@ Io.on('connection',(cliente)=>{
 	cliente.broadcast.emit("admin",msg);
 	});
 });
-
-//Server.createServer(options,App).listen(3000);
-//	Io.listen(Server)
 
