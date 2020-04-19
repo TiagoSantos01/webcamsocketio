@@ -9,7 +9,7 @@ const 	Chave='sessao',
 		key:	Fs.readFileSync('key.pem'),
 		cert:	Fs.readFileSync('cert.pem')
 	},
-	Server= require('https')createServer(options,App).listen(3000),
+	Server= require('https').createServer(options,App).listen(3000),
 	Io = require('socket.io').listen(Server);,
 	Cookie = CookieParser(ChaveSecreta),
 	Store = new ExpressSession.MemoryStore();
