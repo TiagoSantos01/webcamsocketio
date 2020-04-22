@@ -41,17 +41,23 @@ Io.use((socket,proximo)=>{
 	});
 });
 
-App.get('/',(req,res)=>{
+App.get('/1',(req,res)=>{
 	req.session.nome="Tiago",
 	res.render('home');	
 });
-
+App.get('/2',(req,res)=>{
+	req.session.nome="tico",
+	res.render("home2");
+});
 
 Io.on('connection',(cliente)=>{
+console.log("+");
 	let sessao=cliente.handshake.session;
-	cliente.on('admin',(msg)=>{
-	cliente.emit("admin",msg);
-	cliente.broadcast.emit("admin",msg);
+//console.log(cliente);	
+cliente.on('admin',(msg)=>{
+	//cliente.emit("admin",msg);
+console.log(msg['sala'])
+	cliente.broadcast.emit(msg['sala'],msg['msg']);
 	});
 });
 

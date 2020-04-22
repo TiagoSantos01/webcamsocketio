@@ -1,0 +1,484 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			Home
+		</title>
+		<script src="/socket.io/socket.io.js"></script>
+	</head>
+	<body>
+	<video id="video" controls></video>	
+<video id="video_0" controls=""></video><video id="video_1" controls=""></video><video id="video_2" controls=""></video><video id="video_3" controls=""></video><video id="video_4" controls=""></video><video id="video_5" controls=""></video><video id="video_6" controls=""></video><video id="video_7" controls=""></video><video id="video_8" controls=""></video><video id="video_9" controls=""></video><video id="video_10" controls=""></video><video id="video_11" controls=""></video><video id="video_12" controls=""></video><video id="video_13" controls=""></video><video id="video_14" controls=""></video><video id="video_15" controls=""></video>
+
+
+
+
+</body>
+<script>
+	let video=document.getElementById("video");
+	let socket = io.connect("/");
+let video_0=document.getElementById("video_0");let video_1=document.getElementById("video_1");let video_2=document.getElementById("video_2");let video_3=document.getElementById("video_3");let video_4=document.getElementById("video_4");let video_5=document.getElementById("video_5");let video_6=document.getElementById("video_6");let video_7=document.getElementById("video_7");let video_8=document.getElementById("video_8");let video_9=document.getElementById("video_9");let video_10=document.getElementById("video_10");let video_11=document.getElementById("video_11");let video_12=document.getElementById("video_12");let video_13=document.getElementById("video_13");let video_14=document.getElementById("video_14");let video_15=document.getElementById("video_15");
+
+
+
+let arrayOfBlobs_0 = [];
+
+socket.on("admin_0", (data) => {
+    arrayOfBlobs_0.push(data)
+    appendToSourceBuffer_0();;
+});
+let mediaSource_0 = new MediaSource();
+let sourceBuffer_0 = null;
+var url_0 = URL.createObjectURL(mediaSource_0);
+video_0.src = url_0;
+mediaSource_0.addEventListener("sourceopen", function () {
+    sourceBuffer_0 = mediaSource_0.addSourceBuffer('video/webm; codecs="vp8"');
+    sourceBuffer_0.addEventListener("updateend", appendToSourceBuffer_0);
+});
+function appendToSourceBuffer_0() {
+    if (
+        mediaSource_0.readyState === "open" &&
+        sourceBuffer_0 &&
+        sourceBuffer_0.updating === false
+    ) {
+        sourceBuffer_0.appendBuffer(arrayOfBlobs_0.shift());
+    }
+    if (
+        video_0.buffered.length &&
+        video_0.buffered.end(0) - video_0.buffered.start(0) > 1200
+    ) {
+        sourceBuffer_0.remove(0, video_0.buffered.end(0) - 1200)
+    }
+}
+let arrayOfBlobs_1 = [];
+
+socket.on("admin_1", (data) => {
+    arrayOfBlobs_1.push(data)
+    appendToSourceBuffer_1();;
+});
+let mediaSource_1 = new MediaSource();
+let sourceBuffer_1 = null;
+var url_1 = URL.createObjectURL(mediaSource_1);
+video_1.src = url_1;
+mediaSource_1.addEventListener("sourceopen", function () {
+    sourceBuffer_1 = mediaSource_1.addSourceBuffer('video/webm; codecs="vorbis"');
+    sourceBuffer_1.addEventListener("updateend", appendToSourceBuffer_1);
+});
+function appendToSourceBuffer_1() {
+    if (
+        mediaSource_1.readyState === "open" &&
+        sourceBuffer_1 &&
+        sourceBuffer_1.updating === false
+    ) {
+        sourceBuffer_1.appendBuffer(arrayOfBlobs_1.shift());
+    }
+    if (
+        video_1.buffered.length &&
+        video_1.buffered.end(0) - video_1.buffered.start(0) > 1200
+    ) {
+        sourceBuffer_1.remove(0, video_1.buffered.end(0) - 1200)
+    }
+}
+let arrayOfBlobs_2 = [];
+
+socket.on("admin_2", (data) => {
+    arrayOfBlobs_2.push(data)
+    appendToSourceBuffer_2();;
+});
+let mediaSource_2 = new MediaSource();
+let sourceBuffer_2 = null;
+var url_2 = URL.createObjectURL(mediaSource_2);
+video_2.src = url_2;
+mediaSource_2.addEventListener("sourceopen", function () {
+    sourceBuffer_2 = mediaSource_2.addSourceBuffer('video/webm; codecs="vp8, vorbis"');
+    sourceBuffer_2.addEventListener("updateend", appendToSourceBuffer_2);
+});
+function appendToSourceBuffer_2() {
+    if (
+        mediaSource_2.readyState === "open" &&
+        sourceBuffer_2 &&
+        sourceBuffer_2.updating === false
+    ) {
+        sourceBuffer_2.appendBuffer(arrayOfBlobs_2.shift());
+    }
+    if (
+        video_2.buffered.length &&
+        video_2.buffered.end(0) - video_2.buffered.start(0) > 1200
+    ) {
+        sourceBuffer_2.remove(0, video_2.buffered.end(0) - 1200)
+    }
+}
+let arrayOfBlobs_3 = [];
+
+socket.on("admin_3", (data) => {
+    arrayOfBlobs_3.push(data)
+    appendToSourceBuffer_3();;
+});
+let mediaSource_3 = new MediaSource();
+let sourceBuffer_3 = null;
+var url_3 = URL.createObjectURL(mediaSource_3);
+video_3.src = url_3;
+mediaSource_3.addEventListener("sourceopen", function () {
+    sourceBuffer_3 = mediaSource_3.addSourceBuffer('video/webm; codecs="vp9, vorbis"');
+    sourceBuffer_3.addEventListener("updateend", appendToSourceBuffer_3);
+});
+function appendToSourceBuffer_3() {
+    if (
+        mediaSource_3.readyState === "open" &&
+        sourceBuffer_3 &&
+        sourceBuffer_3.updating === false
+    ) {
+        sourceBuffer_3.appendBuffer(arrayOfBlobs_3.shift());
+    }
+    if (
+        video_3.buffered.length &&
+        video_3.buffered.end(0) - video_3.buffered.start(0) > 1200
+    ) {
+        sourceBuffer_3.remove(0, video_3.buffered.end(0) - 1200)
+    }
+}
+let arrayOfBlobs_4 = [];
+
+socket.on("admin_4", (data) => {
+    arrayOfBlobs_4.push(data)
+    appendToSourceBuffer_4();;
+});
+let mediaSource_4 = new MediaSource();
+let sourceBuffer_4 = null;
+var url_4 = URL.createObjectURL(mediaSource_4);
+video_4.src = url_4;
+mediaSource_4.addEventListener("sourceopen", function () {
+    sourceBuffer_4 = mediaSource_4.addSourceBuffer('audio/webm; codecs="vorbis"');
+    sourceBuffer_4.addEventListener("updateend", appendToSourceBuffer_4);
+});
+function appendToSourceBuffer_4() {
+    if (
+        mediaSource_4.readyState === "open" &&
+        sourceBuffer_4 &&
+        sourceBuffer_4.updating === false
+    ) {
+        sourceBuffer_4.appendBuffer(arrayOfBlobs_4.shift());
+    }
+    if (
+        video_4.buffered.length &&
+        video_4.buffered.end(0) - video_4.buffered.start(0) > 1200
+    ) {
+        sourceBuffer_4.remove(0, video_4.buffered.end(0) - 1200)
+    }
+}
+let arrayOfBlobs_5 = [];
+
+socket.on("admin_5", (data) => {
+    arrayOfBlobs_5.push(data)
+    appendToSourceBuffer_5();;
+});
+let mediaSource_5 = new MediaSource();
+let sourceBuffer_5 = null;
+var url_5 = URL.createObjectURL(mediaSource_5);
+video_5.src = url_5;
+mediaSource_5.addEventListener("sourceopen", function () {
+    sourceBuffer_5 = mediaSource_5.addSourceBuffer('video/mp4; codecs="avc1.42e01e, mp4a.40.2"');
+    sourceBuffer_5.addEventListener("updateend", appendToSourceBuffer_5);
+});
+function appendToSourceBuffer_5() {
+    if (
+        mediaSource_5.readyState === "open" &&
+        sourceBuffer_5 &&
+        sourceBuffer_5.updating === false
+    ) {
+        sourceBuffer_5.appendBuffer(arrayOfBlobs_5.shift());
+    }
+    if (
+        video_5.buffered.length &&
+        video_5.buffered.end(0) - video_5.buffered.start(0) > 1200
+    ) {
+        sourceBuffer_5.remove(0, video_5.buffered.end(0) - 1200)
+    }
+}
+let arrayOfBlobs_6 = [];
+
+socket.on("admin_6", (data) => {
+    arrayOfBlobs_6.push(data)
+    appendToSourceBuffer_6();;
+});
+let mediaSource_6 = new MediaSource();
+let sourceBuffer_6 = null;
+var url_6 = URL.createObjectURL(mediaSource_6);
+video_6.src = url_6;
+mediaSource_6.addEventListener("sourceopen", function () {
+    sourceBuffer_6 = mediaSource_6.addSourceBuffer('video/mp4; codecs="avc1.42001e, mp4a.40.5"');
+    sourceBuffer_6.addEventListener("updateend", appendToSourceBuffer_6);
+});
+function appendToSourceBuffer_6() {
+    if (
+        mediaSource_6.readyState === "open" &&
+        sourceBuffer_6 &&
+        sourceBuffer_6.updating === false
+    ) {
+        sourceBuffer_6.appendBuffer(arrayOfBlobs_6.shift());
+    }
+    if (
+        video_6.buffered.length &&
+        video_6.buffered.end(0) - video_6.buffered.start(0) > 1200
+    ) {
+        sourceBuffer_6.remove(0, video_6.buffered.end(0) - 1200)
+    }
+}
+let arrayOfBlobs_7 = [];
+
+socket.on("admin_7", (data) => {
+    arrayOfBlobs_7.push(data)
+    appendToSourceBuffer_7();;
+});
+let mediaSource_7 = new MediaSource();
+let sourceBuffer_7 = null;
+var url_7 = URL.createObjectURL(mediaSource_7);
+video_7.src = url_7;
+mediaSource_7.addEventListener("sourceopen", function () {
+    sourceBuffer_7 = mediaSource_7.addSourceBuffer('video/mp4; codecs="avc1.42001f, mp4a.40.5"');
+    sourceBuffer_7.addEventListener("updateend", appendToSourceBuffer_7);
+});
+function appendToSourceBuffer_7() {
+    if (
+        mediaSource_7.readyState === "open" &&
+        sourceBuffer_7 &&
+        sourceBuffer_7.updating === false
+    ) {
+        sourceBuffer_7.appendBuffer(arrayOfBlobs_7.shift());
+    }
+    if (
+        video_7.buffered.length &&
+        video_7.buffered.end(0) - video_7.buffered.start(0) > 1200
+    ) {
+        sourceBuffer_7.remove(0, video_7.buffered.end(0) - 1200)
+    }
+}
+let arrayOfBlobs_8 = [];
+
+socket.on("admin_8", (data) => {
+    arrayOfBlobs_8.push(data)
+    appendToSourceBuffer_8();;
+});
+let mediaSource_8 = new MediaSource();
+let sourceBuffer_8 = null;
+var url_8 = URL.createObjectURL(mediaSource_8);
+video_8.src = url_8;
+mediaSource_8.addEventListener("sourceopen", function () {
+    sourceBuffer_8 = mediaSource_8.addSourceBuffer('video/mp4; codecs="avc1.4d001e, mp4a.40.5"');
+    sourceBuffer_8.addEventListener("updateend", appendToSourceBuffer_8);
+});
+function appendToSourceBuffer_8() {
+    if (
+        mediaSource_8.readyState === "open" &&
+        sourceBuffer_8 &&
+        sourceBuffer_8.updating === false
+    ) {
+        sourceBuffer_8.appendBuffer(arrayOfBlobs_8.shift());
+    }
+    if (
+        video_8.buffered.length &&
+        video_8.buffered.end(0) - video_8.buffered.start(0) > 1200
+    ) {
+        sourceBuffer_8.remove(0, video_8.buffered.end(0) - 1200)
+    }
+}
+let arrayOfBlobs_9 = [];
+
+socket.on("admin_9", (data) => {
+    arrayOfBlobs_9.push(data)
+    appendToSourceBuffer_9();;
+});
+let mediaSource_9 = new MediaSource();
+let sourceBuffer_9 = null;
+var url_9 = URL.createObjectURL(mediaSource_9);
+video_9.src = url_9;
+mediaSource_9.addEventListener("sourceopen", function () {
+    sourceBuffer_9 = mediaSource_9.addSourceBuffer('video/mp4; codecs="avc1.4d001f, mp4a.40.5"');
+    sourceBuffer_9.addEventListener("updateend", appendToSourceBuffer_9);
+});
+function appendToSourceBuffer_9() {
+    if (
+        mediaSource_9.readyState === "open" &&
+        sourceBuffer_9 &&
+        sourceBuffer_9.updating === false
+    ) {
+        sourceBuffer_9.appendBuffer(arrayOfBlobs_9.shift());
+    }
+    if (
+        video_9.buffered.length &&
+        video_9.buffered.end(0) - video_9.buffered.start(0) > 1200
+    ) {
+        sourceBuffer_9.remove(0, video_9.buffered.end(0) - 1200)
+    }
+}
+let arrayOfBlobs_10 = [];
+
+socket.on("admin_10", (data) => {
+    arrayOfBlobs_10.push(data)
+    appendToSourceBuffer_10();;
+});
+let mediaSource_10 = new MediaSource();
+let sourceBuffer_10 = null;
+var url_10 = URL.createObjectURL(mediaSource_10);
+video_10.src = url_10;
+mediaSource_10.addEventListener("sourceopen", function () {
+    sourceBuffer_10 = mediaSource_10.addSourceBuffer('video/mp4; codecs="avc1.640029, mp4a.40.5"');
+    sourceBuffer_10.addEventListener("updateend", appendToSourceBuffer_10);
+});
+function appendToSourceBuffer_10() {
+    if (
+        mediaSource_10.readyState === "open" &&
+        sourceBuffer_10 &&
+        sourceBuffer_10.updating === false
+    ) {
+        sourceBuffer_10.appendBuffer(arrayOfBlobs_10.shift());
+    }
+    if (
+        video_10.buffered.length &&
+        video_10.buffered.end(0) - video_10.buffered.start(0) > 1200
+    ) {
+        sourceBuffer_10.remove(0, video_10.buffered.end(0) - 1200)
+    }
+}
+let arrayOfBlobs_11 = [];
+
+socket.on("admin_11", (data) => {
+    arrayOfBlobs_11.push(data)
+    appendToSourceBuffer_11();;
+});
+let mediaSource_11 = new MediaSource();
+let sourceBuffer_11 = null;
+var url_11 = URL.createObjectURL(mediaSource_11);
+video_11.src = url_11;
+mediaSource_11.addEventListener("sourceopen", function () {
+    sourceBuffer_11 = mediaSource_11.addSourceBuffer('audio/mp4; codecs="mp4a.40.2"');
+    sourceBuffer_11.addEventListener("updateend", appendToSourceBuffer_11);
+});
+function appendToSourceBuffer_11() {
+    if (
+        mediaSource_11.readyState === "open" &&
+        sourceBuffer_11 &&
+        sourceBuffer_11.updating === false
+    ) {
+        sourceBuffer_11.appendBuffer(arrayOfBlobs_11.shift());
+    }
+    if (
+        video_11.buffered.length &&
+        video_11.buffered.end(0) - video_11.buffered.start(0) > 1200
+    ) {
+        sourceBuffer_11.remove(0, video_11.buffered.end(0) - 1200)
+    }
+}
+let arrayOfBlobs_12 = [];
+
+socket.on("admin_12", (data) => {
+    arrayOfBlobs_12.push(data)
+    appendToSourceBuffer_12();;
+});
+let mediaSource_12 = new MediaSource();
+let sourceBuffer_12 = null;
+var url_12 = URL.createObjectURL(mediaSource_12);
+video_12.src = url_12;
+mediaSource_12.addEventListener("sourceopen", function () {
+    sourceBuffer_12 = mediaSource_12.addSourceBuffer('audio/mp4; codecs="mp4a.40.5"');
+    sourceBuffer_12.addEventListener("updateend", appendToSourceBuffer_12);
+});
+function appendToSourceBuffer_12() {
+    if (
+        mediaSource_12.readyState === "open" &&
+        sourceBuffer_12 &&
+        sourceBuffer_12.updating === false
+    ) {
+        sourceBuffer_12.appendBuffer(arrayOfBlobs_12.shift());
+    }
+    if (
+        video_12.buffered.length &&
+        video_12.buffered.end(0) - video_12.buffered.start(0) > 1200
+    ) {
+        sourceBuffer_12.remove(0, video_12.buffered.end(0) - 1200)
+    }
+}
+let arrayOfBlobs_13 = [];
+
+socket.on("admin_13", (data) => {
+    arrayOfBlobs_13.push(data)
+    appendToSourceBuffer_13();;
+});
+let mediaSource_13 = new MediaSource();
+let sourceBuffer_13 = null;
+var url_13 = URL.createObjectURL(mediaSource_13);
+video_13.src = url_13;
+mediaSource_13.addEventListener("sourceopen", function () {
+    sourceBuffer_13 = mediaSource_13.addSourceBuffer('audio/mp4; codecs="mp4a.67"');
+    sourceBuffer_13.addEventListener("updateend", appendToSourceBuffer_13);
+});
+function appendToSourceBuffer_13() {
+    if (
+        mediaSource_13.readyState === "open" &&
+        sourceBuffer_13 &&
+        sourceBuffer_13.updating === false
+    ) {
+        sourceBuffer_13.appendBuffer(arrayOfBlobs_13.shift());
+    }
+    if (
+        video_13.buffered.length &&
+        video_13.buffered.end(0) - video_13.buffered.start(0) > 1200
+    ) {
+        sourceBuffer_13.remove(0, video_13.buffered.end(0) - 1200)
+    }
+}
+let arrayOfBlobs_14 = [];
+
+socket.on("admin_14", (data) => {
+    arrayOfBlobs_14.push(data)
+    appendToSourceBuffer_14();;
+});
+let mediaSource_14 = new MediaSource();
+let sourceBuffer_14 = null;
+var url_14 = URL.createObjectURL(mediaSource_14);
+video_14.src = url_14;
+mediaSource_14.addEventListener("sourceopen", function () {
+    sourceBuffer_14 = mediaSource_14.addSourceBuffer('video/mp4; codecs="mp4a.40.2"');
+    sourceBuffer_14.addEventListener("updateend", appendToSourceBuffer_14);
+});
+function appendToSourceBuffer_14() {
+    if (
+        mediaSource_14.readyState === "open" &&
+        sourceBuffer_14 &&
+        sourceBuffer_14.updating === false
+    ) {
+        sourceBuffer_14.appendBuffer(arrayOfBlobs_14.shift());
+    }
+    if (
+        video_14.buffered.length &&
+        video_14.buffered.end(0) - video_14.buffered.start(0) > 1200
+    ) {
+        sourceBuffer_14.remove(0, video_14.buffered.end(0) - 1200)
+    }
+}
+let arrayOfBlobs_15 = [];
+
+socket.on("admin_15", (data) => {
+    arrayOfBlobs_15.push(data)
+    appendToSourceBuffer_15();;
+});
+let mediaSource_15 = new MediaSource();
+let sourceBuffer_15 = null;
+var url_15 = URL.createObjectURL(mediaSource_15);
+video_15.src = url_15;
+mediaSource_15.addEventListener("sourceopen", function () {
+    sourceBuffer_15 = mediaSource_15.addSourceBuffer('video/mp4; codecs="avc1.4d001e, mp4a.40.2"');
+    sourceBuffer_15.addEventListener("updateend", appendToSourceBuffer_15);
+});
+function appendToSourceBuffer_15() {
+    if (
+        mediaSource_15.readyState === "open" &&
+        sourceBuffer_15 &&
+        sourceBuffer_15.updating === false
+    ) {
+        sourceBuffer_15.appendBuffer(arrayOfBlobs_15.shift());
+    }
+    if (
+  </script>
+</html>

