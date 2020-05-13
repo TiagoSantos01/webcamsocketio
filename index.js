@@ -53,11 +53,9 @@ App.get('/2',(req,res)=>{
 Io.on('connection',(cliente)=>{
 console.log("+");
 	let sessao=cliente.handshake.session;
-//console.log(cliente);	
 cliente.on('admin',(msg)=>{
-	//cliente.emit("admin",msg);
-console.log(msg['sala'])
-	cliente.broadcast.emit(msg['sala'],msg['msg']);
+
+	cliente.broadcast.emit("admin",msg);
 	});
 });
 
